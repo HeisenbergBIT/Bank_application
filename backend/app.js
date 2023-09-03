@@ -6,7 +6,7 @@ const Post = require('./models/post');
 
 const app = express();
 
-mongoose.connect("mongodb+srv://mikolaj:IyDSgrvmdHHubjG1@cluster0.rz3py9p.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://mikolaj:IyDSgrvmdHHubjG1@cluster0.rz3py9p.mongodb.net/node-angular?retryWrites=true&w=majority")
 .then(() =>{
     console.log("Connected to database")
 })
@@ -30,24 +30,17 @@ app.post("/api/posts",(req,res,next) => {
         title: req.body.title,
         content: req.body.content
     });
-    console.log(post);
+    post.save();
     res.status(201).json();
 });
 
 app.get("/api/posts",(req, res, next) => {
-    const posts = [
-        {id: "afesfdrg",
-        title: "cos tam",
-        content: "cos tam"
-    },
-    {id: "afesfefsfeg",
-        title: "cos tam2",
-        content: "cos tam2"
-    },
-    ];
-    res.status(200).json({
-        message: 'Posts',
-        posts: posts
+    Post.find().then(documents => {
+        res.status(200).json({
+            message: 'Posts fetched',
+            posts: documents
+    })
+    
     });
 });
 
