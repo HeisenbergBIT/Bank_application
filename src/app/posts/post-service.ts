@@ -23,7 +23,6 @@ export class PostsService {
     return this.postsUpdated.asObservable();
   }
 
-  IyDSgrvmdHHubjG1
 
   addPost(title: string, content: string) {
     const post: Post = {id: null, title: title, content: content};
