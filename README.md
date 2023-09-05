@@ -5,7 +5,6 @@
 * [Opis projektu](#opis-projektu)
 * [Użyte technologie](#użyte-technologie)
 * [Uruchomienie aplikacji](#uruchomienie-aplikacji)
-* [Screenshoty](#screenshoty)
 
 ## Opis projektu
 Aplikacja internetowa **The Blog** służy do publikowania postów wraz z możliwością publikowania zdjęć.
