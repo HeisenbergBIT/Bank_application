@@ -1,7 +1,7 @@
 # The Blog 
 
 
-### Spis treści
+# Spis treści
 * [Opis projektu](#opis-projektu)
 * [Użyte technologie](#użyte-technologie)
 * [Uruchomienie aplikacji](#uruchomienie-aplikacji)
