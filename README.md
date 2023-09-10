@@ -1,10 +1,11 @@
-# The Blog
+# The Blog 
 
 
-# Spis treści
+## Spis treści
 * [Opis projektu](#opis-projektu)
 * [Użyte technologie](#użyte-technologie)
 * [Uruchomienie aplikacji](#uruchomienie-aplikacji)
+
 
 ## Opis projektu
 Aplikacja internetowa **The Blog** służy do publikowania postów wraz z możliwością publikowania zdjęć.
@@ -16,3 +17,5 @@ Aplikacja internetowa **The Blog** służy do publikowania postów wraz z możli
 
 ## Uruchomienie aplikacji
 npm run start:server w konsoli na localhost:3000
+
+
