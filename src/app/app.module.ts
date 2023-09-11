@@ -19,6 +19,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { LoginComponent } from './authorization/login/login.component';
 import { SignupComponent } from './authorization/signup/signup.component';
+import { ErrorInterceptor } from './error-interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,10 @@ import { SignupComponent } from './authorization/signup/signup.component';
     MatPaginatorModule,
     HttpClientModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
