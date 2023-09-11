@@ -51,6 +51,11 @@ router.post(
           id: createdPost._id
         }
       });
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "Post creating failed"
+      });
     });
   }
 );
@@ -79,6 +84,11 @@ router.put(
       } else {
         res.status(401).json({ message: "Not authorised" });
       }
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "Post could not update"
+      });
     });
   }
 );
@@ -102,6 +112,11 @@ router.get("", (req, res, next) => {
         posts: fetchedPosts,
         maxPosts: count
       });
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "Posts fetching failes"
+      });
     });
 });
 
@@ -112,7 +127,12 @@ router.get("/:id", (req, res, next) => {
     } else {
       res.status(404).json({ message: "Post not found!" });
     }
-  });
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: "Post fetching failes"
+    });
+  });;
 });
 
 router.delete("/:id",checkAuth, (req, res, next) => {
@@ -122,7 +142,13 @@ router.delete("/:id",checkAuth, (req, res, next) => {
     } else {
       res.status(401).json({ message: "Not authorised" });
     }
-  });
+  }
+  )
+  .catch(error => {
+    res.status(500).json({
+      message: "Posts fetching failes"
+    });
+  });;
 });
 
 module.exports = router;
