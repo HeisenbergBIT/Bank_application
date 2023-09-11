@@ -5,6 +5,7 @@ import { Subject,Observable } from "rxjs";
 
 
 import { AuthData } from "./auth-data.model";
+import { response } from "express";
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
@@ -32,11 +33,14 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  createUser(email: string, password: string):Observable<void> {
+  createUser(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
-    return this.http
-      .post<void>("http://localhost:3000/api/user/signup", authData)
-      
+    this.http
+      .post("http://localhost:3000/api/user/signup", authData).subscribe(() => {
+        this.router.navigate["/"];
+      }, error => {
+        this.authStatusListener.next(false);
+      });
   }
 
   login(email: string, password: string) {
@@ -61,6 +65,8 @@ export class AuthService {
           this.saveAuthData(token, expirationDate, this.userId);
           this.router.navigate(["/"]);
         }
+      }, error => {
+        this.authStatusListener.next(false);
       });
   }
 
