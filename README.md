@@ -16,6 +16,9 @@ Aplikacja internetowa **The Blog** służy do publikowania postów wraz z możli
 * Baza danych: mongoDB (Mongoose) chmura
 
 ## Uruchomienie aplikacji
-npm run start:server w konsoli na localhost:3000
+lokalnie:
+npm run start:server w konsoli
+ng serve w konsoli nasłuchuje na porcie 4200
+localhost:4200
 
 
